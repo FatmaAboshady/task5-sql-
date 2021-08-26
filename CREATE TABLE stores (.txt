@@ -1,0 +1,47 @@
+  CREATE TABLE stores (
+    id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(120) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT NOW(),
+    PRIMARY KEY(id)
+
+
+
+  );
+    CREATE TABLE products (
+        id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+        name VARCHAR(255) NOT NULL,
+        code INTEGER  NOT NULL,
+        description TEXT NOT NULL,
+        price INTEGER  NOT NULL,
+        created_at DATETIME NOT NULL DEFAULT NOW(),
+        supplier_id INTEGER UNSIGNED NOT NULL ,
+        PRIMARY KEY(id);
+        FOREIGN KEY(supplier_id) REFERENCES supplier(id)
+
+
+
+    );
+      CREATE TABLE supplier (
+        id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+        name VARCHAR(255) NOT NULL,
+        price INTEGER#(11)  NOT NULL,
+        email VARCHAR(255) NOT NULL UNIQUE,
+        brief data VARCHAR(255),
+        created_at DATETIME NOT NULL DEFAULT NOW(),
+        PRIMARY KEY(id)
+      );
+
+            CREATE TABLE storeProduct (
+            stores_id INTEGER UNSIGNED NOT NULL ,
+            products_id INTEGER UNSIGNED NOT NULL ,
+            FOREIGN KEY(stores_id) REFERENCES stores(id);
+            FOREIGN KEY(products_id) REFERENCES products(id);
+
+
+
+            )
+
+
+
+  
